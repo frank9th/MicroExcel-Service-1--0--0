@@ -1,0 +1,127 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+      {% load crispy_forms_tags %}
+   
+
+      
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="robots" content="NONE,NOARCHIVE" />
+      
+
+      <title>Api Root – Excel Parser Service</title>
+
+        
+          <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+          <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-tweaks.css' %}"/>
+        
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/prettify.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}"/> 
+
+    
+  </head>
+  <body class="">
+
+    <div class="wrapper">
+      
+        <div class="navbar navbar-static-top navbar-inverse"
+             role="navigation" aria-label="navbar">
+          <div class="container">
+            <span>
+              
+                <a class='navbar-brand' rel="nofollow" href='https://www.django-rest-framework.org/'>
+                    Excel Parser Micro-Service
+                </a>
+              
+            </span>
+            <ul class="nav navbar-nav pull-right">
+             
+                
+              
+            </ul>
+          </div>
+        </div>
+      
+
+      <div class="container">
+        
+          <ul class="breadcrumb">
+            
+              
+                <li class="active"><a href="/">Api Root</a></li>
+              
+            
+          </ul>
+        
+
+        <!-- Content -->
+        <div id="content" role="main" aria-label="content">
+          
+
+          <div class="region"  aria-label="request form">
+    
+         
+            <form class="button-form" data-method="OPTIONS">
+              <button class="btn btn-primary js-tooltip" title="Make an OPTIONS request on the Api Root resource"></button>
+            </form> 
+          </div>
+          <div class="content-main" role="main"  aria-label="main content">
+              <div class="page-header">
+                <h1>Api Root</h1>
+              </div>
+              <div style="float:left">
+                  <p>Upload excel sheet copy enpoint</p>
+                
+              </div>
+
+
+<div class="tabbable">
+                  
+                    <ul class="nav nav-tabs form-switcher">
+                      <li class="active">
+                        <a name="html-tab" href="#post-object-form" data-toggle="tab" aria-expanded="true">List Enpoints</a>
+                      </li>
+                      <li>
+                        <a name="raw-tab" href="#post-generic-content-form" data-toggle="tab">Raw data</a>
+                      </li>
+                    </ul>
+      
+                  <div class="well tab-content">
+                    
+                      <div class="tab-pane active" id="post-object-form">
+
+      <div class="container"> 
+<table class= "table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Sector</th>
+      <th>Date</th>
+      <th>View enpoint </th>
+  </tr>
+</thead>
+<tbody>
+  {% for file in files %}
+    <tr>
+      <td> {{file.name }}</td>
+      <td> {{file.sector }}</td>
+      <td> {{file.upload_at }}</td>
+      <td> 
+        <a href="{% url 'excel_file' pk=file.id %}" target="blank"> {% url 'excel_file' pk=file.id %}/{{file.name }}/%{{file.sector }}</a></td>
+        <!--{{ file.xlsx }}-->
+        <!--{{file.xlsx.url }}-->
+  {% endfor %}
+  
+
+
+</tbody>
+</table>
+
+
+  </body>
+  
+</html>

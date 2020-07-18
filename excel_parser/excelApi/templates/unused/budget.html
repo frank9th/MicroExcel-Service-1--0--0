@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}  {% endblock %}
+
+
+{% block content %}
+
+<h2> budget list </h2>
+
+
+
+
+    </form>
+
+
+<form method ="post" enctype="multipart/form-data">
+	 {% csrf_token %}
+	<!---
+
+                <input type="hidden" name="csrfmiddlewaretoken" value="Gri7cBgQKHNG6BQdcKfHRJRLcOhPzYF8NmJoHRnnAT9dLGSlL6AXn7DMtWrii2Ak">
+              -->
+  <label for="id_name" class="requiredField"> Name<span class="asteriskField">*</span> </label>
+    <input type="text" name="name" maxlength="150" class="textinput textInput" required id="id_name">
+        
+      <label for="id_sector" class="requiredField"> Sector<span class="asteriskField">*</span> </label>
+          <input type="text" name="sector" maxlength="200" class="textinput textInput" required id="id_sector">
+
+            <label for="id_xlsx" class="requiredField"> Xlsx<span class="asteriskField">*</span> </label>
+        <input type="file" name="xlsx" class="clearablefileinput" required id="id_xlsx">
+    
+        <button type="submit" class="btn btn-primary"> Upload file </button>
+            </form>
+
+
+
+{% endblock %}
+
